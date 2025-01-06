@@ -3,16 +3,15 @@ group 'com.fsconceicao.open_document'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    // ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        // classpath 'com.android.tools.build:gradle:7.2.2'
-        classpath 'com.android.tools.build:gradle:8.5.1'
-        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -24,34 +23,28 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
-// apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android'
 
 android {
     // Conditional for compatibility with AGP <4.2.
     if (project.android.hasProperty("namespace")) {
         namespace 'com.fsconceicao.open_document'
     }
- 
 
-    compileSdk 33
-    // compileSdkVersion 33
+    compileSdkVersion 33
 
-    // sourceSets {
-    //     main.java.srcDirs += 'src/main/kotlin'
-    // }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 16
     }
     lintOptions {
-        checkAllWarnings true
-        warningsAsErrors true
         disable 'InvalidPackage'
     }
 }
 
 dependencies {
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
-
      implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
  
