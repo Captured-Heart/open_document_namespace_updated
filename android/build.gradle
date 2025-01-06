@@ -31,6 +31,16 @@ android {
     if (project.android.hasProperty("namespace")) {
         namespace 'com.fsconceicao.open_document'
     }
+ 
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+    
     compileSdk 33
     // compileSdkVersion 33
 
@@ -52,11 +62,4 @@ dependencies {
 
      // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
- // kotlinOptions {
- //        jvmTarget = "17"
- //    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+ 
